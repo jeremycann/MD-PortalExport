@@ -1,3 +1,21 @@
+$(window).bind("load", function() {
+  var iconArrayFinal = [];
+  var iconArray = $("#buttons_panel").find("span[role=img]");
+  iconArray.each(function() {
+    var iconName = $(this).css("background-image");
+    var iconNameTrimmed = trimImageName(iconName);
+    iconArrayFinal.push(iconNameTrimmed);
+  });
+  console.log(iconArrayFinal);
+  Runtime.navTreesIds = iconArrayFinal.slice();
+});
+
+function trimImageName(imageURL) {
+  var t = imageURL.indexOf("/images/");
+  var newString = imageURL.substring(t+8);
+  return newString.replace("_icon.png","");
+}
+
 function expandTreePath(treeIndex)
 {
   //Variable to hold the auto-created treepanel IDs with the elements first part of the named string using function getContentTreePanel().
