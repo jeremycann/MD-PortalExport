@@ -13,22 +13,22 @@ $(window).bind("load", function() {
 function trimImageName(imageURL) {
   var t = imageURL.indexOf("/images/");
   var newString = imageURL.substring(t+8);
-  return newString.replace("_icon.png","");
+  return newString.replace("_icon.png)","");
 }
 
 function expandTreePath(treeIndex)
 {
   //Variable to hold the auto-created treepanel IDs with the elements first part of the named string using function getContentTreePanel().
   var treePanelHeader = ["treepanel-1013", "treepanel-1017", "treepanel-1021", "treepanel-1025", "treepanel-1029", "treepanel-1033", "treepanel-1037", "treepanel-1041", "treepanel-1045", "treepanel-1049"];
-  //Variable used to cross refence button panels IDs in order to 
-  var navTreesIds = ["capability_view_-_capabilities", "operational_view_-_nodes", "operational_view_-_organizational_relationships", "systems_view_-_resources", "systems_view_-_functions", "services_view_-_service_accesses", "services_view_-_interfaces", "standards", "dictionary", "data"];
+  //Variable used to cross refence button panels IDs in order to navigate back.  Being replaced by Runtime.navTreeIds singleton.
+  //var navTreesIds = ["capability_view_-_capabilities", "operational_view_-_nodes", "operational_view_-_organizational_relationships", "systems_view_-_resources", "systems_view_-_functions", "services_view_-_service_accesses", "services_view_-_interfaces", "standards", "dictionary", "data"];
   var componentPanelSearch = getContentTreePanel();
   var navTreePanel;
   var elementNode
   var pathOfTree;
   var childRecord;
 
-  for (item in navTreesIds) {
+  for (item in Runtime.navTreesIds) {
     if (navTreesIds[item] === componentPanelSearch) {
       navTreePanel = Ext.getCmp(treePanelHeader[item]);
       treeButton = Ext.getCmp('button' + item);
