@@ -6,7 +6,6 @@ $(window).bind("load", function() {
     var iconNameTrimmed = trimImageName(iconName);
     iconArrayFinal.push(iconNameTrimmed);
   });
-  console.log(iconArrayFinal);
   Runtime.navTreesIds = iconArrayFinal.slice();
 });
 
@@ -29,7 +28,7 @@ function expandTreePath(treeIndex)
   var childRecord;
 
   for (item in Runtime.navTreesIds) {
-    if (navTreesIds[item] === componentPanelSearch) {
+    if (Runtime.navTreesIds[item] === componentPanelSearch) {
       navTreePanel = Ext.getCmp(treePanelHeader[item]);
       treeButton = Ext.getCmp('button' + item);
       childRecord = navTreePanel.getRootNode().findChild('qtitle', treeIndex, true);
