@@ -12,7 +12,7 @@ $(window).bind("load", function() {
 function trimImageName(imageURL) {
   var t = imageURL.indexOf("/images/");
   var newString = imageURL.substring(t+8);
-  return newString.replace("_icon.png)","");
+  return newString.replace("_icon.png//)","");
 }
 
 function expandTreePath(treeIndex)
